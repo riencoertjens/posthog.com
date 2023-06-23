@@ -10,17 +10,17 @@ availability:
 
 A/B testing enables you to test the impact of product changes and understand how they affect your users' behaviour. For example:
 
-- You can test how changes to your onboarding flow affect your signup rate.
-- You can test different designs of your app's dashboard to identify which one increases user engagement and retention.
-- You can test the impact of offering a free trial period versus a money-back guarantee to determine which approach results in more paying customers.
+- How changes to your onboarding flow affect your signup rate.
+- If different designs of your app's dashboard increase user engagement and retention.
+- The impact of offering a free trial period versus a money-back guarantee to determine which approach results in more paying customers.
 
 A/B tests are also sometimes referred to as "experiments", and this is how we refer to them in the PostHog app.
 
 ## How to create an experiment in PostHog
 
-To create a new experiment, go to the [experiments tab](https://app.posthog.com/experiments) in the PostHog app. Then click on the "New experiment" button in the top right.
+To create a new experiment, go to the [experiments tab](https://app.posthog.com/experiments) in the PostHog app, and click on the "New experiment" button in the top right.
 
-This will present you with a form where you can complete the details of your new experiment:
+This presents you with a form where you can complete the details of your new experiment:
 
 ![How to create an experiment in PostHog](../../images/features/experiments/create-experiment.png)
 
@@ -28,17 +28,17 @@ Here's a breakdown of each field in the form:
 
 ### Feature flag key
 
-Each experiment is backed by a [feature flag](/docs/feature-flags/manual). In your code, you'll use this feature flag key to check which experiment variant the user has been assigned to. 
+Each experiment is backed by a [feature flag](/docs/feature-flags/manual). In your code, you use this feature flag key to check which experiment variant the user has been assigned to. 
 
 > **Advanced:** It's possible to create experiments without using PostHog's feature flags (for example, if you you're a different library for feature flags). For more info, read our docs on [implementing experiments without feature flags](// TODO add link here) 
 
 ### Experiment variants
 
-By default, all experiments have a 'control' and 'test' variant. If you have more variants that you'd like to test, you can use this field to add more variants and run multivariant tests.
+By default, all experiments have a 'control' and 'test' variant. If you have more variants that you'd like to test, you can use this field to add more variants and run multivariant tests. Participants are automatically split equally between variants.
 
 ### Participant type
 
-If you've created [groups](/docs/product-analytics/group-analytics) in PostHog, you can use this field to run [group-targeted experiments](/blog/running-group-targeted-ab-tests). This will test how a change affects your product at a group-level. 
+The default is users, but if you've created [groups](/docs/product-analytics/group-analytics) in PostHog, you can use this field to run [group-targeted experiments](/blog/running-group-targeted-ab-tests). This will test how a change affects your product at a group-level. 
 
 ### Participant targeting
 
@@ -50,13 +50,13 @@ Below is a video showing this:
 
 ### Experiment goal
 
-Setting your goal metric will enable PostHog to automatically keep track of your goal metrics and let you know if your results are statiscally signifcant. You can select between a "trend" or "conversion funnel" goal.
+Setting your goal metric enable PostHog to calculate the impact of your experiment and if your results are [statistically significant](/docs/experiments/significance). You can select between a "trend" or "conversion funnel" goal.
 
-A minimum acceptable improvement calculator is only shown on the screen. This combines historical data from your goal metric with your desired improvement rate to show you how long you'll need to run your experiment for in order to see statiscal significant results.
+You set the minimum acceptable improvement below. This combines historical data from your goal metric with your desired improvement rate to show you how long you'll need to run your experiment for in order to see statistical significant results.
 
 ![Minimum acceptable improvement calculator](../../images/features/experiments/improvement-calculator.mp4)
 
-> **Note:** When selecting an event that is submitted from your server, you may see an warning that no feature flag information can be detected with the event. To resolve this issue, see [step 2 of adding your experiment code and how to submit feature flag information with your events](/docs/experiments/manual#step-2-server-side-only-upload-the-feature-flag-property-with-your-events).
+> **Note:** If you select a server-side event, you may see a warning that no feature flag information can be detected with the event. To resolve this issue, see [step 2 of adding your experiment code and how to submit feature flag information with your events](/docs/experiments/manual#step-2-server-side-only-upload-the-feature-flag-property-with-your-events).
 > 
 > ![Experiment goal warning](../../images/features/experiments/experiment-goal-warning.png)
 
@@ -203,7 +203,7 @@ if variant == 'variant_name' {
 ```
 </MultiLanguage>
 
-### Step 2: (Server-side only) Upload the feature flag property with your events 
+### Step 2 (server-side only): Add the feature flag property to your events 
 
 For any server-side events that are also goal metrics for your experiment, you'll need to include a property `$feature/experiment_feature_flag_name: variant_name` when submitting those events. This ensures that the event is attributed to the correct experiment variant (e.g., test or control).
 
@@ -299,12 +299,12 @@ Here is checklist of things to do when ready to end your experiment:
 -   [ ] Remove your experiment code and launch the winning variant to all your users.
 -   [ ] Share results with your team.
 -   [ ] Document conclusions and findings in your PostHog experiment. This will help preserve historical context for future team members.
--   [ ] Archive the experiment. This will disable the feature flag and ensure your code no longer depends on the flag.
+-   [ ] Archive the experiment.
 
 ### Further reading
 
 Want to learn more about how to run successful experiments in PostHog? Try these tutorials:
 
--   [8 annoying A/B testing mistakes every engineer should know]([/tutorials/experiments](https://posthog.com/blog/ab-testing-mistakes))
+-   [8 annoying A/B testing mistakes every engineer should know][/tutorials/experiments]
 -   [When and how to run group-targeted A/B tests](/blog/running-group-targeted-ab-tests)
 
