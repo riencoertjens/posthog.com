@@ -31,7 +31,7 @@ To book a day off:
 
 > Please manually book in public holidays you plan to take off as well. We have team members working in countries all over the world, so it is not practical for us to book these all in on your behalf. Some people also prefer to work on certain days even if they're considered a public holiday in the country they are living in or visiting. 
 
-The same rules as above apply regardless of the holiday length and type. Sick leave and any any other types of time off should also be booked in the same way. 
+The same rules as above apply regardless of the holiday length and type. Sick leave and any other types of time off should also be booked in the same way. 
 
 ## Flexible working
 
